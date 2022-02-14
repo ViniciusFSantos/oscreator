@@ -8,7 +8,6 @@
     <meta name="keywords" content="​Complex Service Your Car, ​A checklist to prepare your car for a long road trip, ​High-quality Car Restoration, What Clients Say">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Página Inicial</title>
     <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'css/Página-Inicial.css' %}" media="screen">
     <script class="u-script" type="text/javascript" src="{% static 'js/jquery.js' %}" defer=""></script>
@@ -46,7 +45,7 @@
               <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{% url 'index' %}" style="padding: 10px 34px;">Página Inicial</a>
               </li>
               {% if user.is_authenticated %}
-                <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{% url 'account_logout' %}" style="padding: 10px 35px 10px 34px;">Sair</a>
+                <li class="u-nav-item"><a action="{% url 'account_logout' %}" class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{% url 'account_logout' %}" style="padding: 10px 35px 10px 34px;">Sair</a>
                 </li>
               {% else %}
                 <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{% url 'account_login' %}" style="padding: 10px 35px 10px 34px;">Entrar</a>
