@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     #local apps
     'core',
     #third apps
-    'bootstrap5',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -84,12 +84,13 @@ WSGI_APPLICATION = 'oscreator.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+
+        'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'oscreator',
-        'USER': 'vinicius',
-        'PASSWORD': '112233',
-        'HOST':'localhost',
+        'USER': 'postgres',
+        'PASSWORD': 'flamengo5240',
+        'HOST': 'localhost',
         'PORT': '5432',
         
     }
