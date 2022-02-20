@@ -1,3 +1,9 @@
+#homeimg{
+  margin-bottom: -100px;
+}
+a:link{
+  text-decoration: none;
+}
 .u-section-1 .u-sheet-1 {
   min-height: 650px;
 }
@@ -49,6 +55,7 @@
   width: 462px;
   height: 634px;
   margin: -44px 0 -30px;
+
 }
 
 @media (max-width: 1199px) {
