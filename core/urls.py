@@ -7,5 +7,5 @@ from django.conf import settings
 
 urlpatterns = [
     path('',IndexView.as_view(), name='index'),
-    path('mainboard/',MainBoard.as_view(), name='mainboard'),
+    path('mainboard/', MainBoard.as_view(), name='mainboard'),
 ]
