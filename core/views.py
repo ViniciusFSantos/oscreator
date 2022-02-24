@@ -1,22 +1,15 @@
-from multiprocessing import context
-from urllib import request
-from django.shortcuts import render
-from django.views.generic import TemplateView, View, ListView, DetailView
+from django.views import generic
 from core.models import Servico
-from django.http import HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class IndexView(TemplateView):
+
+class IndexView(generic.TemplateView):
     template_name = 'index.html'
     pass    
 
-class MainBoard(ListView):
-    model = Servico
-    template_name = 'mainboard'
+class MainBoard(LoginRequiredMixin, generic.ListView):
+    template_name = 'mainboard.html'
     context_object_name = 'servicos'
+    def get_queryset(self):
+        return Servico.objects.all()
     
-    
-    '''def get(self, request):
-        if request.user.is_authenticated:
-            return render(request, self.template_name)
-        else:
-            return render(request, self.not_auth)'''
