@@ -1,9 +1,10 @@
 {% load static %}
 {% block content %}
+{% load bootstrap5 %}
 <!doctype html>
 <html lang="pt-br">
   <head>
-  	<title>MainBoard</title>
+  	<title>Clientes</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -41,9 +42,48 @@
     	</nav>
 
         <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5 pt-5">
+      <div id="content" class="p-4 p-md-5 pt-5">       
+        <a> <button id="novobtn" type="button"  > Novo </button> </a>
+        <span><input type="text" id="searchplace" onkeyup="myFunction()" placeholder="Buscar cliente.."></span>
         
-      </div>
+        <table class="table" id="maintable">
+        <thead style="text-align: center;" class="table-dark">
+            <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF/CNPJ</th>
+            <th scope="col">RG/IE</th>
+            <th scope="col">Telefone1</th>
+            <th scope="col">Telefone2</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Endereço</th>
+            <th scope="col">Bairro</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">UF</th>
+            </tr>
+        </thead>
+        
+        <tbody class="table-secondary" id="bodytable">
+        {% for cliente in clientes %}
+            <tr style="text-align: center;">
+            <td scope="row">{{cliente.id}}</td>
+            <td scope="row">{{cliente.nome}}</td>
+            <td scope="row">{{cliente.cpf_cnpj}}</td>
+            <td scope="row">{{cliente.rg_ie}}</td>
+            <td scope="row">{{cliente.telefone1}}</td>
+            <td scope="row">{{cliente.telefone2}}</td>
+            <td scope="row">{{cliente.email}}</td>
+            <td scope="row">{{cliente.endereco}}</td>
+            <td scope="row">{{cliente.bairro}}</td>
+            <td scope="row">{{cliente.cidade}}</td>
+            <td scope="row">{{cliente.uf}}</td>
+            </tr>
+        {% endfor %}
+          </tbody> 
+      </table>
+        
+        
+  </div>
       </div>
 		</div>
 

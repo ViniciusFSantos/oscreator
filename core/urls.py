@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import IndexView, MainBoard
+from .views import IndexView, MainBoard, ClienteView, ServicoView, OsView
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -8,4 +8,7 @@ from django.conf import settings
 urlpatterns = [
     path('',IndexView.as_view(), name='index'),
     path('mainboard/', MainBoard.as_view(), name='mainboard'),
+    path('mainboard/clientes', ClienteView.as_view(), name='clientes'),
+    path('mainboard/servicos', ServicoView.as_view(), name='servicos'),
+    path('mainboard/os', OsView.as_view(), name='os'),
 ]
