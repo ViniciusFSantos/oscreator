@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+		<link rel="stylesheet" href="{% static 'css/mainboard.css' %}">
   </head>
   <body>
 		
@@ -44,12 +44,12 @@
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">       
         <a> <button id="novobtn" type="button"  > Novo </button> </a>
-        <span><input type="text" id="searchplace" onkeyup="myFunction()" placeholder="Buscar cliente.."></span>
+        <span><input type="text" id="searchplace" placeholder="Buscar cliente.."></span>
         
         <table class="table" id="maintable">
         <thead style="text-align: center;" class="table-dark">
             <tr>
-            <th scope="col">Id</th>
+            <th scope="col">Código</th>
             <th scope="col">Nome</th>
             <th scope="col">CPF/CNPJ</th>
             <th scope="col">RG/IE</th>
@@ -65,7 +65,7 @@
         
         <tbody class="table-secondary" id="bodytable">
         {% for cliente in clientes %}
-            <tr style="text-align: center;">
+            <tr style="text-align: center;" id="trdata">
             <td scope="row">{{cliente.id}}</td>
             <td scope="row">{{cliente.nome}}</td>
             <td scope="row">{{cliente.cpf_cnpj}}</td>

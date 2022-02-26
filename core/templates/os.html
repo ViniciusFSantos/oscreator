@@ -1,0 +1,94 @@
+{% load static %}
+{% block content %}
+{% load bootstrap5 %}
+<!doctype html>
+<html lang="pt-br">
+  <head>
+  	<title>Clientes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{% static 'css/mainboard.css' %}">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	          <i class="fa fa-bars"></i>
+	          <span class="sr-only">Toggle Menu</span>
+	        </button>
+        </div>
+	  		<h1><a href="{% url 'index' %}" class="logo">OSCreator</a></h1>
+        <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="{% url 'mainboard' %}"><span class="fa fa-home mr-3"></span> Mainboard</a>
+          </li>
+          <li>
+            <a href="{% url 'clientes' %}"><span class="fa fa-user mr-3"></span> Clientes</a>
+          </li>
+          <li>
+            <a href="{% url 'servicos' %}"><span class="fa fa-sticky-note mr-3"></span> Serviços</a>
+          </li>
+          <li>
+            <a href="{% url 'os' %}"><span class="fa fa-sticky-note mr-3"></span> OS</a>
+          </li>
+        </ul>
+
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">       
+        <a> <button id="novobtn" type="button"  > Novo </button> </a>
+        <span><input type="text" id="searchplace" placeholder="Buscar serviço.."></span>
+        
+        <table class="table" id="maintable">
+        <thead style="text-align: center;" class="table-dark">
+            <tr>
+            <th scope="col" class="os-thead">Código</th>
+            <th scope="col" class="os-thead">Cliente</th>
+            <th scope="col" class="os-thead">Relato Cliente</th>
+            <th scope="col" class="os-thead">Relato Téc</th>
+            <th scope="col" class="os-thead">Tipo Serviço</th>
+            <th scope="col" class="os-thead">Observação</th>
+            <th scope="col" class="os-thead">Garantia até</th>
+            <th scope="col">Valor Serviço</th>
+            <th scope="col">Valor Peças</th>
+            <th scope="col" class="os-thead">Total</th>
+            </tr>
+        </thead>
+        
+        <tbody class="table-secondary" id="bodytable">
+        {% for os in OSs %}
+            <tr style="text-align: center;" id="trdata">
+            <td scope="row">{{os.id}}</td>
+            <td scope="row">{{os.cliente}}</td>
+            <td scope="row">{{os.relato}}</td>
+            <td scope="row">{{os.defeito_encontrado}}</td>
+            <td scope="row">{{os.servico}}</td>
+            <td scope="row">{{os.desc_serv}}</td>
+            <td scope="row">{{os.garantia}}</td>
+            <td scope="row">{{os.serv_valor}}</td>
+            <td scope="row">{{os.pec_valor}}</td>
+            <td scope="row"></td>
+            </tr>
+        {% endfor %}
+          </tbody> 
+      </table>
+        
+        
+  </div>
+      </div>
+		</div>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>
+{%endblock%}

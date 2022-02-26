@@ -20,11 +20,16 @@ class Cliente(Base):
     bairro = models.CharField('Bairro', max_length=100)
     cidade = models.CharField('Cidade', max_length=50)
     uf = models.CharField('UF', max_length=2)
+    def __str__(self):
+        return self.nome
 
 class Servico(Base):
     servico = models.CharField('Serviço', max_length=100,)
     descricao = models.TextField('Descrção', max_length=40)
     
+    def __str__(self):
+        return self.servico
+            
 class Os(Base):
     cliente = models.ForeignKey('core.Cliente', verbose_name='Cliente', on_delete=models.CASCADE)
     relato = models.TextField('Relato', max_length=200)
@@ -35,4 +40,3 @@ class Os(Base):
     serv_valor = models.DecimalField('Valor do Serviço', decimal_places=2, max_digits=8)
     pec_valor = models.DecimalField('Valor das Peças', decimal_places=2, max_digits=8, null=True)
     #!! TODO Total serv_valor + pec_valor 
-        

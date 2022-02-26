@@ -25,6 +25,6 @@ class ServicoView(LoginRequiredMixin, generic.ListView):
 
 class OsView(LoginRequiredMixin, generic.ListView):
     template_name = 'os.html'
-    context_object_name = 'OS'
+    context_object_name = 'OSs'
     def get_queryset(self):
         return Os.objects.all()
