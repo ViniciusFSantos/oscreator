@@ -97,6 +97,19 @@ body {
   padding-bottom: 20px !important;
 
 }
+#sair-side-btn{
+  background-color: #ffc107;
+  color: black;
+  font-family: Roboto, sans-serif !important;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-left: 62px;
+  width: 100px;
+  border-color: rgba(255, 255, 255, 0.349);
+}
+#sair-side-btn:hover{
+  background-color: rgb(189, 189, 4);
+}
 table{
   font-size: 13px;
 }
@@ -8252,7 +8265,7 @@ h1, h2, h3, h4, h5,
     #sidebar h1 .logo {
       color: black;
       display: block;
-      padding: 11px 57px;
+      padding: 11px 59px;
       background: #ffc107; 
     }
   .logo:hover{
