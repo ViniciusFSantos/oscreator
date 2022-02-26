@@ -83,6 +83,8 @@ body {
   border-radius: 3px;
   border-color: rgba(0, 0, 0, 0.452);
 
+  position: fixed;
+
 }
   #searchplace:hover{
     border-color: rgba(0, 0, 0, 0.603);
