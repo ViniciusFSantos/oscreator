@@ -9,4 +9,4 @@ class ServicoForm(forms.ModelForm):
 
 class ClienteForm(forms.ModelForm):
     model = Cliente
-    fields('nome', 'cpf_cnpj', 'rg_ie', 'telefone1', 'telefone2', 'email', 'endereco', 'bairro', 'cidade', 'uf')
+    fields = ('nome', 'cpf_cnpj', 'rg_ie', 'telefone1', 'telefone2', 'email', 'endereco', 'bairro', 'cidade', 'uf')
