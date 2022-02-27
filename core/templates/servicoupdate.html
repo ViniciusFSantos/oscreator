@@ -1,11 +1,11 @@
 {% load static %}
 {% block content %}
 {% load bootstrap5 %}
-
+{% bootstrap_messages %}
 <!doctype html>
 <html lang="pt-br">
   <head>
-  	<title>Novo Cliente</title>
+  	<title>Novo Serviço</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -63,10 +63,10 @@
 
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">       
-        <form id="cliente_form" action="{% url 'clientes_new' %}" method="POST" accept-charset="utf-8">
+        <form id="servico_form" method="POST" accept-charset="utf-8">
             {% csrf_token %}
                 {{form.as_p}}
-                <button type="button" action="submit"> Salvar</button>
+                <button type="submit" value="Save" id="btn_save">Salvar</button>
         </form>
   </div>
       </div>

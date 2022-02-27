@@ -1,6 +1,7 @@
 {% load static %}
 {% block content %}
 {% load bootstrap5 %}
+{% bootstrap_messages %}
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -65,7 +66,7 @@
         <form id="servico_form" action="{% url 'servicos_new' %}" method="POST" accept-charset="utf-8">
             {% csrf_token %}
                 {{form.as_p}}
-                <button type="button" action="submit"> Salvar</button>
+                <button type="submit" value="Save" id="btn_save">Salvar</button>
         </form>
   </div>
       </div>
