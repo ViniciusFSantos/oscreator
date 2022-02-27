@@ -2,7 +2,7 @@ from django.views import generic
 from core.models import Servico, Cliente, Os
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import FormView
-from .forms import ClienteForm, ServicoForm
+from .forms import ClienteForm, ServicoForm, OsForm
 
 class IndexView(generic.TemplateView):
     template_name = 'index.html'
@@ -37,7 +37,13 @@ class ClienteFormView(FormView):
         return super().form_valid(form)
 
 class ServicoFormView(FormView):
-    pass
+    template_name = 'novoservico.html'
+    form_class = ServicoForm
+    def form_valid(self, form):
+        return super().form_valid(form)
 
 class OsFormView(FormView):
-    pass
+    template_name = 'novaos.html'
+    form_class = OsForm
+    def form_valid(self, form):
+        return super().form_valid(form)
