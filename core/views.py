@@ -38,11 +38,14 @@ class OsView(LoginRequiredMixin, ListView):
         return Os.objects.all()
 
 class ClienteOsSpecifcView(DetailView):
-    template_name='clienteos.html'
-    context_object_name='cliente'
-    model=Cliente
+    template_name ='clienteos.html'
+    context_object_name ='cliente'
+    model = Cliente
 
-        
+class ServicoOsSpecifcView(DetailView):
+    template_name ='servicoos.html'
+    context_object_name ='servico'
+    model = Servico
 
     
 # ---------------------

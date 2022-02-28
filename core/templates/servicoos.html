@@ -1,0 +1,115 @@
+{% load static %}
+{% block content %}
+{% load bootstrap5 %}
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <title>Clientes</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'css/mainboard.css' %}">
+</head>
+
+<body>
+
+  <div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+      <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+          <i class="fa fa-bars"></i>
+          <span class="sr-only">Toggle Menu</span>
+        </button>
+      </div>
+      <h1><a href="{% url 'index' %}" class="logo">OSCreator</a></h1>
+      <ul class="list-unstyled components mb-5">
+        <li class="active">
+          <a href="{% url 'mainboard' %}"><span class="fa fa-home mr-3"></span> Mainboard</a>
+        </li>
+        <li>
+          <a href="{% url 'clientes' %}"><span class="fa fa-user mr-3"></span> Clientes</a>
+        </li>
+        <li>
+          <a href="{% url 'servicos' %}"><span class="fa fa-sticky-note mr-3"></span> Serviços</a>
+        </li>
+        <li>
+          <a href="{% url 'os' %}"><span class="fa fa-sticky-note mr-3"></span> OS</a>
+        </li>
+      </ul>
+      <button id="sair-side-btn" type="button" data-toggle="modal" data-target="#exampleModalLong">Sair</button>
+      <!-- Start Modal -->
+      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Deseja realmente sair?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-footer">
+              <a href="{% url 'account_logout' %}"><button type="butto" class="btn btn-warning"> Sim </button></a>
+              <button type="butto" class="btn btn-secondary" data-dismiss="modal"> Não </a></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--End Modal -->
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5 pt-5">
+      <a href="{% url 'clientes_new' %}"> <button id="novobtn" type="button"> Novo </button> </a>
+      <span><input type="text" id="searchplace" placeholder="Buscar cliente.."></span>
+      <table class="table" id="maintable">
+        <thead style="text-align: center;" class="table-dark">
+          <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Relato</th>
+            <th scope="col">Defeito</th>
+            <th scope="col">Servico</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Garantia</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Valor das Peças</th>
+            <th scope="col">Valor Total</th>
+          </tr>
+        </thead>
+
+        <tbody class="table-secondary" id="bodytable">
+          {% for os in servico.os_set.all %}
+          <tr style="text-align: center;" id="trdata" onclick="location.href = '{% url 'os' %}';">
+            <td scope="row">{{os.cliente.id}}</td>
+            <td scope="row">{{os.relato}}</td>
+            <td scope="row">{{os.defeito_encontrado}}</td>
+            <td scope="row">{{os.servico}}</td>
+            <td scope="row">{{os.desc_serv}}</td>
+            <td scope="row">{{os.garantia}}</td>
+            <td scope="row">{{os.serv_valor}}</td>
+            <td scope="row">{{os.pec_valor}}</td>
+            <td scope="row">{{os.total}}</td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+  </div>
+
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/popper.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
+{%endblock%}

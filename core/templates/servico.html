@@ -76,7 +76,7 @@
         
         <tbody class="table-secondary" id="bodytable">
         {% for servico in servicos %}
-            <tr style="text-align: center;" id="trdata">
+            <tr style="text-align: center;" id="trdata" onclick="location.href = 'servicoos/{{servico.id}}';">
             <td scope="row"><a class="link-id" href="servicos/{{servico.id}}">{{servico.id}}</td></a>
             <td scope="row">{{servico.servico}}</td>
             <td scope="row">{{servico.descricao}}</td>
