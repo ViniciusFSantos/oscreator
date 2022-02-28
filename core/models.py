@@ -1,6 +1,5 @@
-from ast import Delete
 from django.db import models
-from tkinter import CASCADE
+
 
 class Base(models.Model):
     created = models.DateTimeField('Criado em', auto_now_add=True)
@@ -39,4 +38,9 @@ class Os(Base):
     garantia = models.DateField('Garantia')
     serv_valor = models.DecimalField('Valor do Serviço', decimal_places=2, max_digits=8)
     pec_valor = models.DecimalField('Valor das Peças', decimal_places=2, max_digits=8, null=True)
-    #!! TODO Total serv_valor + pec_valor 
+
+    
+    @property
+    def total(self):
+        '''Calcula o valor total da Ordem de Serviço on time'''
+        return self.serv_valor + self.pec_valor
