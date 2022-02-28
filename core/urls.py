@@ -16,4 +16,5 @@ urlpatterns = [
     path('mainboard/os/new', views.OsFormView.as_view(), name='os_new'),
     path('mainboard/clientes/<pk>', views.ClienteUpdateView.as_view(), name='clientes_update'),
     path('mainboard/servicos/<pk>', views.ServicoUpdateView.as_view(), name='servicos_update'),
+    path('mainboard/clienteos/<pk>', views.ClienteOsSpecifcView.as_view(), name='cliente_os'),
 ]

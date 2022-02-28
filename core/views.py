@@ -31,6 +31,12 @@ class OsView(LoginRequiredMixin, ListView):
     context_object_name = 'OSs'
     def get_queryset(self):
         return Os.objects.all()
+
+class ClienteOsSpecifcView(ListView):
+    template_name = 'clienteos.html'
+    context_object_name = 'clienteos'
+    def get_queryset():
+        return Os.objects.filter(Os_cliente = 'id')
 # ---------------------
 # ------- Create ------
 class ClienteFormView(LoginRequiredMixin, FormView):
@@ -53,6 +59,7 @@ class OsFormView(FormView):
     def form_valid(self, form):
         form.save()        
         return HttpResponseRedirect('/mainboard/os')
+
 # ---------------------
 # ------- Update ------
 class ClienteUpdateView(LoginRequiredMixin, UpdateView):
