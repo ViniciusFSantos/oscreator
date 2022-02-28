@@ -1,9 +1,14 @@
-from django.http import HttpResponseRedirect
-from django.views.generic import TemplateView, ListView
-from core.models import Servico, Cliente, Os
-from .forms import ClienteForm, ServicoForm, OsForm
+
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseRedirect
+from django.views.generic import ListView, TemplateView
+from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, UpdateView
+
+from core.models import Cliente, Os, Servico
+
+from .forms import ClienteForm, OsForm, ServicoForm
+
 
 # ----- Views -----
 class IndexView(TemplateView):
@@ -32,11 +37,14 @@ class OsView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Os.objects.all()
 
-class ClienteOsSpecifcView(ListView):
-    template_name = 'clienteos.html'
-    context_object_name = 'clienteos'
-    def get_queryset():
-        return Os.objects.filter(Os_cliente = 'id')
+class ClienteOsSpecifcView(DetailView):
+    template_name='clienteos.html'
+    context_object_name='cliente'
+    model=Cliente
+
+        
+
+    
 # ---------------------
 # ------- Create ------
 class ClienteFormView(LoginRequiredMixin, FormView):
