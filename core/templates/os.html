@@ -62,7 +62,7 @@
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">       
         <a href="{% url 'os_new' %}"> <button id="novobtn" type="button"  > Novo </button> </a>
-        <span><input type="text" id="searchplace" placeholder="Buscar serviço.."></span>
+        <span><input type="text" id="searchplace" placeholder="Buscar OS.."></span>
         
         <table class="table" id="maintable">
         <thead style="text-align: center;" class="table-dark">
@@ -84,10 +84,10 @@
         {% for os in OSs %}
             <tr style="text-align: center;" id="trdata">
             <td scope="row">{{os.id}}</td>
-            <td scope="row">{{os.cliente}}</td>
+            <td scope="row"><a class="link-id" href="clientes/{{os.cliente.id}}">{{os.cliente}}</td></a>
             <td scope="row">{{os.relato}}</td>
             <td scope="row">{{os.defeito_encontrado}}</td>
-            <td scope="row">{{os.servico}}</td>
+            <td scope="row"><a class="link-id" href="servicos/{{os.servico.id}}">{{os.servico}}</td></a>
             <td scope="row">{{os.desc_serv}}</td>
             <td scope="row">{{os.garantia}}</td>
             <td scope="row">{{os.serv_valor}}</td>

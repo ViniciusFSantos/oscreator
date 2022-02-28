@@ -81,20 +81,5 @@ class ServicoUpdateView(LoginRequiredMixin, UpdateView):
     ]
     success_url = '/mainboard/servicos'
 
-
-class OsUpdateView(LoginRequiredMixin, UpdateView):
-    model = Servico
-    template_name = 'osupdate.html'
-    fields = [
-        'cliente',
-        'relato',
-        'defeito_encontrado',
-        'servico',
-        'desc_serv',
-        'garantia',
-        'serv_valor',
-        'pec_valor',
-    ]
-    success_url = '/mainboard/os'
 # ---------------------
 # ------ Delete ------

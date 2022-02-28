@@ -139,7 +139,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# django allauth 
+#----------------------- django allauth-----------------------------------------------
 
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
@@ -157,3 +157,4 @@ ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 LOGIN_REDIRECT_URL = '/'
+#----------------------------------------------------------------------------------------

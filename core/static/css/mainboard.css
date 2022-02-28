@@ -115,6 +115,12 @@ body {
 table{
   font-size: 13px;
 }
+.link-id{
+  color: rgb(20, 16, 214);
+  font-weight: 500;
+  padding-left: 6px;
+  padding-right: 6px;
+}
 
 hr {
   -webkit-box-sizing: content-box;

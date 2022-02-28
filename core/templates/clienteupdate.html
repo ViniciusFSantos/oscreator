@@ -1,10 +1,11 @@
 {% load static %}
 {% block content %}
 {% load bootstrap5 %}
+{% bootstrap_messages %}
 <!doctype html>
 <html lang="pt-br">
   <head>
-  	<title>Clientes</title>
+  	<title>Novo Serviço</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -62,30 +63,11 @@
 
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">       
-        <a href="{% url 'servicos_new' %}"> <button id="novobtn" type="button"  > Novo </button> </a>
-        <span><input type="text" id="searchplace" placeholder="Buscar serviço.."></span>
-        
-        <table class="table" id="maintable">
-        <thead style="text-align: center;" class="table-dark">
-            <tr>
-            <th scope="col">Código</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Descrição</th>
-            </tr>
-        </thead>
-        
-        <tbody class="table-secondary" id="bodytable">
-        {% for servico in servicos %}
-            <tr style="text-align: center;" id="trdata">
-            <td scope="row"><a class="link-id" href="servicos/{{servico.id}}">{{servico.id}}</td></a>
-            <td scope="row">{{servico.servico}}</td>
-            <td scope="row">{{servico.descricao}}</td>
-            </tr>
-        {% endfor %}
-          </tbody> 
-      </table>
-        
-        
+        <form id="servico_form" method="POST" accept-charset="utf-8">
+            {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" value="Save" id="btn_save">Salvar</button>
+        </form>
   </div>
       </div>
 		</div>

@@ -85,7 +85,7 @@
         <tbody class="table-secondary" id="bodytable">
         {% for cliente in clientes %}
             <tr style="text-align: center;" id="trdata">
-            <td scope="row">{{cliente.id}}</td>
+            <td scope="row"><a class="link-id" href="clientes/{{cliente.id}}">{{cliente.id}}</td></a>
             <td scope="row">{{cliente.nome}}</td>
             <td scope="row">{{cliente.cpf_cnpj}}</td>
             <td scope="row">{{cliente.rg_ie}}</td>

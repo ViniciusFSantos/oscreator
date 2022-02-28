@@ -1,6 +1,7 @@
 {% load static %}
-{% block content %}
 {% load bootstrap5 %}
+{% bootstrap_messages %}
+{% block content %}
 
 <!doctype html>
 <html lang="pt-br">
@@ -63,9 +64,9 @@
 
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">       
-        <form id="cliente_form" action="{% url 'clientes_new' %}" method="POST" accept-charset="utf-8">
+        <form  class="uniForm" type="form" id="cliente_form" action="{% url 'clientes_new' %}" method="POST" accept-charset="utf-8">
             {% csrf_token %}
-                {{form.as_p}}
+            {{form}}
                 <button type="button" action="submit"> Salvar</button>
         </form>
   </div>
