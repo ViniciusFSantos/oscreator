@@ -1,6 +1,5 @@
-
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpRequest
 from django.views.generic import ListView, TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, UpdateView
@@ -23,19 +22,19 @@ class ClienteView(LoginRequiredMixin, ListView):
     template_name = 'cliente.html'
     context_object_name = 'clientes'
     def get_queryset(self):
-        return Cliente.objects.all()
+        return Cliente.objects.filter(criador_cliente = self.request.user.id)
 
 class ServicoView(LoginRequiredMixin, ListView):
     template_name = 'servico.html'
     context_object_name = 'servicos'
     def get_queryset(self):
-        return Servico.objects.all()
+        return Servico.objects.filter(criador_servico = self.request.user.id)
 
 class OsView(LoginRequiredMixin, ListView):
     template_name = 'os.html'
     context_object_name = 'OSs'
     def get_queryset(self):
-        return Os.objects.all()
+        return Os.objects.filter(criador_os = self.request.user.id)
 
 class ClienteOsSpecifcView(DetailView):
     template_name ='clienteos.html'

@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class Base(models.Model):
     created = models.DateTimeField('Criado em', auto_now_add=True)
@@ -9,6 +9,7 @@ class Base(models.Model):
         abstract = True    
 
 class Cliente(Base):
+    criador_cliente = models.ForeignKey(User, related_name='Criador_Cliente', verbose_name='Criador_Cliente', on_delete=models.CASCADE)
     nome = models.CharField('Nome', max_length=120)
     cpf_cnpj = models.CharField('CPF/CNPJ', max_length=14)
     rg_ie = models.CharField('RG/IE', max_length=12)
@@ -25,12 +26,14 @@ class Cliente(Base):
 class Servico(Base):
     servico = models.CharField('Serviço', max_length=100,)
     descricao = models.TextField('Descrção', max_length=40)
+    criador_servico = models.ForeignKey(User, related_name='Criador_Servico', verbose_name='Criador_Servico', on_delete=models.CASCADE)
     
     def __str__(self):
         return self.servico
             
 class Os(Base):
-    cliente = models.ForeignKey('core.Cliente', verbose_name='Cliente', on_delete=models.CASCADE)
+    criador_os = models.ForeignKey(User, related_name='Criador_Os', verbose_name='Criador_Os', on_delete=models.CASCADE)
+    cliente = models.ForeignKey('core.Cliente', verbose_name='Cliente', on_delete=models.CASCADE, default=' ')
     relato = models.TextField('Relato', max_length=200)
     defeito_encontrado = models.TextField('Defeito', max_length=200)
     servico = models.ForeignKey('core.Servico', verbose_name='Serviço', on_delete=models.DO_NOTHING)

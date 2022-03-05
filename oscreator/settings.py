@@ -90,7 +90,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'oscreator',
         'USER': 'postgres',
-        'PASSWORD': '***',
+        'PASSWORD': 'flamengo5240',
         'HOST': 'localhost',
         'PORT': '5432',
         
